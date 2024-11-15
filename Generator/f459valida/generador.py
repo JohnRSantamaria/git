@@ -485,7 +485,7 @@ posibles_valores = {
     "CODIGO_CUIF": [str(i).zfill(3) for i in range(1, 100)],
     "DESCRIPCION": descripcion,
     "MONEDA0": moneda0,
-    "FECHA_CORTE": ["31/07/2023"],
+    "FECHA_CORTE": ["2023-07-31"],
 }
 
 
@@ -497,4 +497,4 @@ creador = CreadorParquet(
 )
 
 
-creador.generar_datos(n_rows=20000000)
+creador.generar_datos(n_rows=10000000)

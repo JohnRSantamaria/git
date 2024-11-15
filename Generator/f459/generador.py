@@ -10,7 +10,7 @@ fuente459 = pl.DataFrame(
         "Tipo_cap": pl.Series([], dtype=pl.Utf8),
         "Numero_ID": pl.Series([], dtype=pl.Int32),
         "Numero_Producto": pl.Series([], dtype=pl.Int32),
-        "Valor": pl.Series([], dtype=pl.Decimal(31, 0)),
+        "Valor": pl.Series([], dtype=pl.Decimal(11, 2)),
         "FECHA_CORTE": pl.Series([], dtype=pl.Date),
         "IdDatoFuente": pl.Series([], dtype=pl.Int32),
     }
@@ -25,7 +25,7 @@ posibles_valores = {
     "UC": [str(i) for i in range(1, 6)],
     "SUBCUENTA": subcuenta,
     "Tipo_cap": [str(i) for i in range(1, 7)],
-    "FECHA_CORTE": ["31/07/2023"],
+    "FECHA_CORTE": ["2023-07-31"],
 }
 
 creador = CreadorParquet(
@@ -38,4 +38,4 @@ creador = CreadorParquet(
 )
 
 
-creador.generar_datos(n_rows=20000000)
+creador.generar_datos(n_rows=10000000)

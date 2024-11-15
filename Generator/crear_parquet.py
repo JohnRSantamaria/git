@@ -9,7 +9,6 @@ from datetime import datetime, timedelta
 from wraps.medir_tiempo import medir_tiempo
 
 
-
 class CreadorParquet:
     def __init__(
         self,
@@ -50,6 +49,8 @@ class CreadorParquet:
             return start_datetime + timedelta(
                 seconds=random.randint(0, 60 * 60 * 24 * 365 * 30)
             )
+        elif dtype == pl.Decimal(11, 2):
+            return str(Decimal(random.randint(0, 10**11)) / Decimal(100))
         elif dtype == pl.Decimal(30, 2):
             return Decimal(random.randint(0, 10**30)) / Decimal(100)
         elif dtype == pl.Decimal(31, 0):
@@ -97,4 +98,3 @@ class CreadorParquet:
 
         with concurrent.futures.ThreadPoolExecutor() as executor:
             executor.map(os.remove, temp_files)
-
